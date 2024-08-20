@@ -37,8 +37,8 @@ def run(args: DictConfig):
 
     train_dataset, validation_dataset = get_dataset()
 
-    train_loader = torch.untils.data.DataLoader(train_dataset, shuffle=True, pin_memory=True, **loader_args)
-    val_loader = torch.untils.data.DataLoader(validation_dataset, batch_size=1, shuffle=False, num_workers=4)
+    train_loader = torch.utils.data.DataLoader(train_dataset, shuffle=True, pin_memory=True, **loader_args)
+    val_loader = torch.utils.data.DataLoader(validation_dataset, batch_size=1, shuffle=False, num_workers=4)
 
     #----------------------------
     #         model
