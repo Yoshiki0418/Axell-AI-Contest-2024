@@ -70,4 +70,4 @@ class ValidationDataSet(DataSetBase):
         return PIL.Image.open(self.low_resolution_image_path / path.relative_to(self.high_resolution_image_path))
 
 def get_dataset() -> Tuple[TrainDataSet, ValidationDataSet]:
-    return TrainDataSet(Path("../dataset/train"), 850 * 10), ValidationDataSet(Path("../dataset/validation/original"), Path("../dataset/validation/0.25x"))
+    return TrainDataSet(Path("dataset/train"), 850 * 10), ValidationDataSet(Path("dataset/validation/original"), Path("dataset/validation/0.25x"))
