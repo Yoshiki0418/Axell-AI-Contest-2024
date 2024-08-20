@@ -112,3 +112,5 @@ def run(args: DictConfig):
                     output_names=["output"],
                     dynamic_axes={"input": {2: "height", 3:"width"}})
                 
+if __name__ == "__main__":
+    run()
