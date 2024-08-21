@@ -1,7 +1,7 @@
 defaults:
-  - model: standard/ESPCN4x # ここでモデルの変更を行う
+  - model: standard/SRResNet4x  
 
-batch_size: 8
+batch_size: 64
 epochs: 1
 lr: 0.001
 

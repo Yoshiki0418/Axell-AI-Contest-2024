@@ -3,6 +3,7 @@ from .standard import *
 def get_model(model_name: str):
     models = {
         "ESPCN4x": ESPCN4x,
+        "SRResNet4x": SRResNet4x,
     }
     try:
         return models[model_name]
