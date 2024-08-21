@@ -1,0 +1,9 @@
+model:
+  name: ESPCN4x
+batch_size: 8
+epochs: 20
+lr: 0.001
+num_workers: 2
+device: cuda:0
+seed: 1234
+use_wandb: false

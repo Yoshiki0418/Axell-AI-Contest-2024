@@ -2,7 +2,7 @@ defaults:
   - model: standard/ESPCN4x # ここでモデルの変更を行う
 
 batch_size: 8
-epochs: 20
+epochs: 1
 lr: 0.001
 
 num_workers: 2
