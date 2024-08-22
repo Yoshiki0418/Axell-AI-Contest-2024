@@ -1,8 +1,8 @@
 defaults:
-  - model: standard/SRResNet4x  
+  - model: standard/ESPCN4x
 
 batch_size: 16
-epochs: 20
+epochs: 5
 lr: 0.001
 
 num_workers: 2
