@@ -47,6 +47,9 @@ def run(args: DictConfig):
 
     model = ModelClass().to(args.device)
 
+    checkpoint_path = "model_epoch_55.pth"
+    model.load_state_dict(torch.load(checkpoint_path))
+
     #----------------------------
     #        Optimizer
     #----------------------------
@@ -105,8 +108,8 @@ def run(args: DictConfig):
             writer.add_image("output", output[0], epoch)
 
             # メトリクスをコンソールに出力する
-            print(f"Epoch {epoch+1} Training Loss: {average_train_loss:.4f}, Training PSNR: {average_train_psnr:.4f}")
-            print(f"Epoch {epoch+1} Validation Loss: {average_validation_loss:.4f}, Validation PSNR: {average_validation_psnr:.4f}")
+            print(f"Epoch {epoch+1} Training Loss: {average_train_loss:.7f}, Training PSNR: {average_train_psnr:.4f}")
+            print(f"Epoch {epoch+1} Validation Loss: {average_validation_loss:.7f}, Validation PSNR: {average_validation_psnr:.4f}")
             # 5エポックごとにモデルを保存
             if (epoch + 1) % 5 == 0:
                 checkpoint_path = f"model_epoch_{epoch+1}.pth"
