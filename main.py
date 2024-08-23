@@ -79,6 +79,9 @@ def run(args: DictConfig):
                     train_psnr += calc_psnr(image1, image2)
                 optimizer.step()
             scheduler.step()
+
+            average_train_loss = train_loss / len(train_dataset)
+            average_train_psnr = train_psnr / len(train_dataset)
             
             # 検証
             model.eval()
@@ -91,11 +94,24 @@ def run(args: DictConfig):
                     validation_loss += loss.item() * low_resolution_image.size(0)
                     for image1, image2 in zip(output, high_resolution_image):   
                         validation_psnr += calc_psnr(image1, image2)
+
+            average_validation_loss = validation_loss / len(validation_dataset)
+            average_validation_psnr = validation_psnr / len(validation_dataset)
+
             writer.add_scalar("train/loss", train_loss / len(train_dataset), epoch)
             writer.add_scalar("train/psnr", train_psnr / len(train_dataset), epoch)
             writer.add_scalar("validation/loss", validation_loss / len(validation_dataset), epoch)
             writer.add_scalar("validation/psnr", validation_psnr / len(validation_dataset), epoch)
             writer.add_image("output", output[0], epoch)
+
+            # メトリクスをコンソールに出力する
+            print(f"Epoch {epoch+1} Training Loss: {average_train_loss:.4f}, Training PSNR: {average_train_psnr:.4f}")
+            print(f"Epoch {epoch+1} Validation Loss: {average_validation_loss:.4f}, Validation PSNR: {average_validation_psnr:.4f}")
+            # 5エポックごとにモデルを保存
+            if (epoch + 1) % 5 == 0:
+                checkpoint_path = f"model_epoch_{epoch+1}.pth"
+                torch.save(model.state_dict(), checkpoint_path)
+                print(f"Saved checkpoint: {checkpoint_path}")
         except Exception as ex:
             print(f"EPOCH[{epoch}] ERROR: {ex}")
 
