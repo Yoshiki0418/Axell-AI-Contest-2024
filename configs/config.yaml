@@ -1,8 +1,8 @@
 defaults:
-  - model: standard/LiteFusionSR
+  - model: standard/DeepESPCN4x
 
 batch_size: 32
-epochs: 5
+epochs: 50
 lr: 0.001
 
 num_workers: 2
