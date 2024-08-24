@@ -51,7 +51,12 @@ class FusionSR(nn.Module):
         X = self.prelu(self.pixel_shuffle(X))
         X_out = clip(X, 0.0, 1.0)
         return X_out
-
+    
+"""
+開発メモ
+LiteFusionSRで推論時間制約をほんの少しオーバー
+入力チャンネル24、出力チャンネル24の層を除いたらちょうどいいかも？
+"""
 
 class LiteFusionSR(nn.Module):
     def __init__(self) -> None:
