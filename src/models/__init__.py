@@ -6,7 +6,8 @@ def get_model(model_name: str):
         "ESPCN4x": ESPCN4x,
         "SRResNet4x": SRResNet4x,
         "FusionSR": FusionSR,
-        "LiteFusionSR": LiteFusionSR
+        "LiteFusionSR": LiteFusionSR,
+        "DeepESPCN4x": DeepESPCN4x,
     }
     try:
         return models[model_name]

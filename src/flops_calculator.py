@@ -31,7 +31,7 @@ def calculate_flops(model, input_size):
 
 
 # モデルのインスタンス化
-model = ESPCN4x()
+model = DeepESPCN4x()
 # パラメータ数の計算
 total_params = sum(p.numel() for p in model.parameters())
 print(f"パラメータ数:{total_params}")
