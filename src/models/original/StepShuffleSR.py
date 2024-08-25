@@ -16,11 +16,11 @@ class StepShuffleSR(nn.Module):
         nn.init.normal_(self.conv_2.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_2.bias)
         
-        self.conv_3 = nn.Conv2d(in_channels=64, out_channels=32, kernel_size=3, padding=1)
+        self.conv_3 = nn.Conv2d(in_channels=64, out_channels=16, kernel_size=3, padding=1)
         nn.init.normal_(self.conv_3.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_3.bias)
 
-        self.conv_4 = nn.Conv2d(in_channels=32, out_channels=16, kernel_size=3, padding=1)
+        self.conv_4 = nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, padding=1)
         nn.init.normal_(self.conv_4.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_4.bias)
 
@@ -48,10 +48,10 @@ class StepShuffleSR(nn.Module):
 
     def forward(self, X_in: torch.Tensor) -> torch.Tensor:
         X1 = self.act(self.conv_1(X_in))
-        X = self.act(self.conv_2(X1))
+        X = self.act(self.conv_2(X1)) + X1
         X2 = self.act(self.conv_3(X))
-        X = self.act(self.conv_4(X2))
-        X = self.upsampling_layer1(X)
+        X = self.act(self.conv_4(X2)) + X2
+        X = self.upsampling_layer1(X) 
         X = self.upsampling_layer2(X)
         X = self.final_conv(X)
         X_out = clip(X, 0.0, 1.0)
