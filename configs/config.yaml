@@ -1,9 +1,9 @@
 defaults:
-  - model: standard/StepShuffleSR
+  - model: standard/DeepESPCN4x_v2
 
 batch_size: 32
-epochs: 15
-lr: 0.0009
+epochs: 5
+lr: 0.001
 
 num_workers: 2
 
