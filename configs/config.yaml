@@ -1,9 +1,9 @@
 defaults:
-  - model: standard/LiteFusionSR
+  - model: standard/StepShuffleSR
 
 batch_size: 32
-epochs: 50
-lr: 0.001
+epochs: 15
+lr: 0.0009
 
 num_workers: 2
 
