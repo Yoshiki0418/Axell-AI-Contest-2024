@@ -70,11 +70,13 @@ class DeepESPCN4x_v2(nn.Module):
         nn.init.normal_(self.conv_5.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_5.bias)
 
-        self.conv_6 = nn.Conv2d(in_channels=32, out_channels=(3 * self.scale * self.scale), kernel_size=3, padding=1)
+        self.conv_6 = nn.Conv2d(in_channels=32, out_channels=(8 * self.scale * self.scale), kernel_size=3, padding=1)
         nn.init.normal_(self.conv_6.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_6.bias)
 
         self.pixel_shuffle = nn.PixelShuffle(self.scale)
+
+        self.conv_7 = nn.Conv2d(in_channels=8, out_channels=3, kernel_size=9, padding=4)
 
     def forward(self, X_in: tensor) -> tensor:
         X1 = self.act(self.conv_1(X_in))
@@ -83,6 +85,7 @@ class DeepESPCN4x_v2(nn.Module):
         # X = self.act(self.conv_4(X)) + X1
         X = self.act(self.conv_5(X))
         X = self.conv_6(X)
-        X = self.pixel_shuffle(X)
+        X = self.act(self.pixel_shuffle(X))
+        X = self.conv_7(X)
         X_out = clip(X, 0.0, 1.0)
         return X_out
