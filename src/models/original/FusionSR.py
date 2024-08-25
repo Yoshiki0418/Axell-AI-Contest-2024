@@ -78,7 +78,7 @@ class LiteFusionSR(nn.Module):
         nn.init.normal_(self.conv2[0].weight, mean=0, std=0.001) 
         nn.init.zeros_(self.conv2[0].bias)
 
-        self.conv3 = nn.Conv2d(in_channels=48, out_channels=48, kernel_size=5, stride=1, padding=2)
+        self.conv3 = nn.Conv2d(in_channels=48, out_channels=48, kernel_size=3, stride=1, padding=1)
         nn.init.normal_(self.conv3.weight, mean=0, std=0.001) 
         nn.init.zeros_(self.conv3.bias)
 
