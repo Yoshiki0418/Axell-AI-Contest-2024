@@ -54,11 +54,11 @@ class DeepESPCN4x_v2(nn.Module):
 
         self.act = nn.ReLU()
 
-        self.conv_2 = nn.Conv2d(in_channels=32, out_channels=128, kernel_size=3, padding=1)
+        self.conv_2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1)
         nn.init.normal_(self.conv_2.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_2.bias)
         
-        self.conv_3 = nn.Conv2d(in_channels=128, out_channels=32, kernel_size=3, padding=1)
+        self.conv_3 = nn.Conv2d(in_channels=64, out_channels=32, kernel_size=3, padding=1)
         nn.init.normal_(self.conv_3.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_3.bias)
 
