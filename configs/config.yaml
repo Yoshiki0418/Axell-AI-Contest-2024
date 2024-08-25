@@ -2,8 +2,8 @@ defaults:
   - model: standard/DeepESPCN4x
 
 batch_size: 32
-epochs: 40
-lr: 0.001
+epochs: 60
+lr: 0.0007
 
 num_workers: 2
 

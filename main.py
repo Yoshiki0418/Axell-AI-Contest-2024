@@ -47,7 +47,7 @@ def run(args: DictConfig):
 
     model = ModelClass().to(args.device)
 
-    checkpoint_path = "model_epoch_20.pth"
+    checkpoint_path = "model_epoch_40.pth"
     model.load_state_dict(torch.load(checkpoint_path))
 
     #----------------------------
