@@ -10,6 +10,7 @@ def get_model(model_name: str):
         "DeepESPCN4x": DeepESPCN4x,
         "DeepESPCN4x_v2": DeepESPCN4x_v2,
         "StepShuffleSR": StepShuffleSR,
+        "DeepESPCN4x_v3": DeepESPCN4x_v3,
     }
     try:
         return models[model_name]

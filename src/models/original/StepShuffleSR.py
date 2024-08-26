@@ -1,6 +1,11 @@
 import torch
 from torch import nn, clip
 
+"""
+パラメータ数は少ないが、推論時間が遅い
+ピクセルシャッフルを２回にしたことで、メモリが再配置されるため計算効率が悪くなったことが推測される。
+"""
+
 class StepShuffleSR(nn.Module):
     def __init__(self) -> None:
         super().__init__()

@@ -1,5 +1,5 @@
 from .FusionSR import FusionSR, LiteFusionSR
-from .DeepESPCN4x import DeepESPCN4x, DeepESPCN4x_v2
+from .DeepESPCN4x import DeepESPCN4x, DeepESPCN4x_v2, DeepESPCN4x_v3
 from .StepShuffleSR import StepShuffleSR
 
 __all__ = [
@@ -8,4 +8,5 @@ __all__ = [
     "DeepESPCN4x",
     "DeepESPCN4x_v2",
     "StepShuffleSR",
+    "DeepESPCN4x_v3",
 ]
