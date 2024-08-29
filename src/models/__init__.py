@@ -12,6 +12,7 @@ def get_model(model_name: str):
         "StepShuffleSR": StepShuffleSR,
         "DeepESPCN4x_v3": DeepESPCN4x_v3,
         "LiteSRResNet": LiteSRResNet,
+        "LiteRCAN": LiteRCAN,
     }
     try:
         return models[model_name]
