@@ -1,5 +1,5 @@
 defaults:
-  - model: standard/LiteRCAN
+  - model: standard/LiteSRResNet_v2
 
 batch_size: 32
 epochs: 2

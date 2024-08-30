@@ -43,7 +43,7 @@ class LiteSRResNet_v2(nn.Module):
     def __init__(self) -> None:
         super().__init__()
         self.scale = 4
-        self.i = 12
+        self.i = 16
         self.conv_1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=9, padding=4)
         nn.init.normal_(self.conv_1.weight, mean=0, std=0.001)
         nn.init.zeros_(self.conv_1.bias)
