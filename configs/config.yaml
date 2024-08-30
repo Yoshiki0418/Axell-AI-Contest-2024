@@ -1,5 +1,5 @@
 defaults:
-  - model: standard/LiteSRResNet_v2
+  - model: standard/StepShuffleSR
 
 batch_size: 32
 epochs: 2
