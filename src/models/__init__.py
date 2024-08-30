@@ -13,6 +13,7 @@ def get_model(model_name: str):
         "DeepESPCN4x_v3": DeepESPCN4x_v3,
         "LiteSRResNet": LiteSRResNet,
         "LiteRCAN": LiteRCAN,
+        "LiteSRResNet_v2": LiteSRResNet_v2,
     }
     try:
         return models[model_name]
